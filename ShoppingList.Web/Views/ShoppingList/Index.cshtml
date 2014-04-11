@@ -1,0 +1,40 @@
+﻿@using Newtonsoft.Json
+@model DBSoft.ShoppingList.Web.Controllers.ShoppingListModel
+
+@{
+    ViewBag.Title = "ShoppingList";
+}
+
+<div ng-app="shoppingListModule"
+     ng-controller="shoppingListController"
+     id="shoppingList"
+     data-save-item-url="@Url.Action("SaveItem")"
+     data-remove-item-url="@Url.Action("RemoveItem")">
+    <h2>Shopping List</h2>
+    <ul>
+        <li ng-repeat="item in model.Items  | filterItems">
+            <div ng-hide="item.isAdding">
+                <input type="checkbox" ng-model="item.selected" />{{item.ItemName}}<br/>
+            </div>
+            <input ng-show="item.isAdding" type="text" ng-model="item.ItemName" />
+            <input ng-show="item.isAdding" type="button" value="Save" ng-click="saveItem(item)" />
+            <input ng-show="item.isAdding" type="button" value="Cancel" ng-click="cancelSaveItem(item)" />
+        </li>
+    </ul>
+    <input type="button" value="Add" ng-click="addItem()" />
+    <input type="button" value="Remove" ng-click="removeItems()" />
+</div>
+
+<script type="text/javascript">
+    var shoppingListModel =
+        @Html.Raw(JsonConvert.SerializeObject(Model, Formatting.Indented, new JsonSerializerSettings
+    {
+        NullValueHandling = NullValueHandling.Ignore
+    }))
+</script>
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/ShoppingList/app.js")
+    @Scripts.Render("~/Scripts/ShoppingList/shoppingListController.js")
+}
