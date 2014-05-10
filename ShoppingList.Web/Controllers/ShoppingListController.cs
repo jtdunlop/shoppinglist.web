@@ -16,9 +16,10 @@ namespace DBSoft.ShoppingList.Web.Controllers
 
 		public ActionResult Index()
         {
+			var counter = 0;
 			var model = new ShoppingListModel
 			{
-				Items = _service.GetShoppingList().Select(f => new Item { ItemName = f })
+				Items = _service.GetShoppingList().Select(f => new Item { ItemName = f, Id = ++counter })
 			};
             return View(model);
         }

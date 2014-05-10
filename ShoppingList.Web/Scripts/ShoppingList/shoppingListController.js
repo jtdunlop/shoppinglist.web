@@ -5,6 +5,8 @@ shoppingListModule.controller('shoppingListController', function ($scope, $http)
 	
 	$scope.addItem = function () {
 		$scope.model.Items.push({ isAdding: true });
+		$scope.$apply();
+		window.scrollTo(0, document.body.scrollHeight);
 	};
 
 	$scope.saveItem = function (item) {
@@ -20,6 +22,10 @@ shoppingListModule.controller('shoppingListController', function ($scope, $http)
 			item.isRemoved = true;
 		}
 		item.isAdding = false;
+	};
+
+	$scope.toggle = function (item) {
+		item.selected = !item.selected;
 	};
 
 	$scope.removeItems = function () {

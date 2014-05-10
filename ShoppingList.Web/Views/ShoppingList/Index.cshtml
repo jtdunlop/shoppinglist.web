@@ -5,36 +5,40 @@
     ViewBag.Title = "ShoppingList";
 }
 
+<h3>Shopping List</h3>
 <div ng-app="shoppingListModule"
      ng-controller="shoppingListController"
+     my-main-directive
+     my-directive
      id="shoppingList"
      data-save-item-url="@Url.Action("SaveItem")"
      data-remove-item-url="@Url.Action("RemoveItem")">
-    <h2>Shopping List</h2>
-    <ul>
-        <li ng-repeat="item in model.Items  | filterItems">
+    <div id="checkbox-list" class="checkbox-list">
+        <div class="selection-div" ng-repeat="item in model.Items  | filterItems" my-repeat-directive>
             <div ng-hide="item.isAdding">
-                <input type="checkbox" ng-model="item.selected" />{{item.ItemName}}<br/>
+                <my-checkbox item="item"></my-checkbox>
             </div>
-            <input ng-show="item.isAdding" type="text" ng-model="item.ItemName" />
-            <input ng-show="item.isAdding" type="button" value="Save" ng-click="saveItem(item)" />
-            <input ng-show="item.isAdding" type="button" value="Cancel" ng-click="cancelSaveItem(item)" />
-        </li>
-    </ul>
-    <input type="button" value="Add" ng-click="addItem()" />
-    <input type="button" value="Remove" ng-click="removeItems()" />
+            <input ng-show="item.isAdding" type="text" class="form-control" ng-model="item.ItemName" />
+            <input ng-show="item.isAdding" type="button" class="btn-device btn-info" value="Save" ng-click="saveItem(item)" />
+            <input ng-show="item.isAdding" type="button" class="btn-device btn-warning" value="Cancel" ng-click="cancelSaveItem(item)" />
+        </div>
+    </div>
+    <div id="buttons">
+        <input type="button" class="btn-device btn-success" value="Add" ng-click="addItem()" />
+        <input type="button" class="btn-device btn-danger" value="Remove" ng-click="removeItems()" />
+    </div>
 </div>
 
-<script type="text/javascript">
-    var shoppingListModel =
-        @Html.Raw(JsonConvert.SerializeObject(Model, Formatting.Indented, new JsonSerializerSettings
+    <script type="text/javascript">
+        var shoppingListModel =
+            @Html.Raw(JsonConvert.SerializeObject(Model, Formatting.Indented, new JsonSerializerSettings
     {
         NullValueHandling = NullValueHandling.Ignore
     }))
-</script>
+    </script>
 
-@section scripts
+    @section scripts
 {
-    @Scripts.Render("~/Scripts/ShoppingList/app.js")
-    @Scripts.Render("~/Scripts/ShoppingList/shoppingListController.js")
-}
+        @Scripts.Render("~/Scripts/ShoppingList/app.js")
+        @Scripts.Render("~/Scripts/ShoppingList/shoppingListController.js")
+    }

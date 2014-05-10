@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Security;
 using ShoppingList.Web.Models;
 
@@ -10,52 +8,8 @@ namespace DBSoft.ShoppingList.Web.Controllers
 	[Authorize]
 	public class AccountController : Controller
 	{
-		//
-		// GET: /Account/Index
-
-		public ActionResult Index()
-		{
-			return View();
-		}
-
-		//
-		// GET: /Account/Login
-
-		[AllowAnonymous]
-		public ActionResult Login()
-		{
-			return View();
-		}
-
-		//
-		// POST: /Account/Login
-
-		[AllowAnonymous]
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public ActionResult Login(LoginModel model, string returnUrl)
-		{
-			if (ModelState.IsValid)
-			{
-				if (Membership.ValidateUser(model.UserName, model.Password))
-				{
-					FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-					if (Url.IsLocalUrl(returnUrl))
-					{
-						return Redirect(returnUrl);
-					}
-					return RedirectToAction("Index", "Home");
-				}
-				ModelState.AddModelError("", "The user name or password provided is incorrect.");
-			}
-
-			// If we got this far, something failed, redisplay form
-			return View(model);
-		}
-
-		//
-		// GET: /Account/LogOff
-
+	
+	
 		public ActionResult LogOff()
 		{
 			FormsAuthentication.SignOut();
@@ -96,57 +50,6 @@ namespace DBSoft.ShoppingList.Web.Controllers
 
 			// If we got this far, something failed, redisplay form
 			return View(model);
-		}
-
-		//
-		// GET: /Account/ChangePassword
-
-		public ActionResult ChangePassword()
-		{
-			return View();
-		}
-
-		//
-		// POST: /Account/ChangePassword
-
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public ActionResult ChangePassword(ChangePasswordModel model)
-		{
-			if (ModelState.IsValid)
-			{
-
-				// ChangePassword will throw an exception rather
-				// than return false in certain failure scenarios.
-				bool changePasswordSucceeded;
-				try
-				{
-					MembershipUser currentUser = Membership.GetUser(User.Identity.Name, userIsOnline: true);
-					Debug.Assert(currentUser != null, "currentUser != null");
-					changePasswordSucceeded = currentUser.ChangePassword(model.OldPassword, model.NewPassword);
-				}
-				catch (Exception)
-				{
-					changePasswordSucceeded = false;
-				}
-
-				if (changePasswordSucceeded)
-				{
-					return RedirectToAction("ChangePasswordSuccess");
-				}
-				ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
-			}
-
-			// If we got this far, something failed, redisplay form
-			return View(model);
-		}
-
-		//
-		// GET: /Account/ChangePasswordSuccess
-
-		public ActionResult ChangePasswordSuccess()
-		{
-			return View();
 		}
 
 		#region Status Codes

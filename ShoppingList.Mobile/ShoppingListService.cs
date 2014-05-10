@@ -55,8 +55,8 @@ namespace ShoppingList.Mobile
 
 		private string GetServiceAddress()
 		{
-#if true
-			return string.Format("http://{0}/shoppinglist.services", _emulated ? "10.0.2.2" : "192.168.0.102");
+#if DEBUG
+			return string.Format("http://{0}/shoppinglist.services", _emulated ? "10.0.2.2" : "192.168.0.101");
 #else
 			return "http://shopping-list.azurewebsites.net";
 #endif
@@ -118,7 +118,7 @@ namespace ShoppingList.Mobile
 				{
 					var request = new RestRequest("api/item/{item}", Method.DELETE);
 					request.AddUrlSegment("item", deletion.ItemName);
-					var response = _client.Execute(request);
+					_client.Execute(request);
 				}
 				conn.Commit();
 			}
@@ -132,7 +132,7 @@ namespace ShoppingList.Mobile
 				foreach (var addition in additions)
 				{
 					var request = new RestRequest("api/item?id=" + addition.ItemName, Method.POST);
-					var response = _client.Execute(request);
+					_client.Execute(request);
 				}
 				conn.Commit();
 			}
@@ -154,8 +154,7 @@ namespace ShoppingList.Mobile
 		
 		public void RemoveItem(string text)
 		{
-			var request = new RestRequest("api/item/{item}", Method.DELETE);
-			request.AddUrlSegment("item", text);
+			var request = new RestRequest("api/item?id=" + text, Method.DELETE);
 			var response = _client.Execute(request);
 			if (response.ResponseStatus == ResponseStatus.Completed && response.StatusCode == HttpStatusCode.NoContent) return;
 #if ANDROID
@@ -172,6 +171,7 @@ namespace ShoppingList.Mobile
 
 	public class Item
 	{
+		public int Id { get; set; }
 		[PrimaryKey]
 		public string ItemName { get; set; }
 		public int AddFlag { get; set;}

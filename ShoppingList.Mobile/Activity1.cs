@@ -9,9 +9,9 @@ using System.Linq;
 namespace ShoppingList.Mobile
 {
 #if DEBUG
-	[Activity(Label = "ShoppingList.Mobile", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity(Label = "ShoppingList.Mobile.Debug", MainLauncher = true, Icon = "@drawable/icon")]
 #else
-	[Activity(Label = "ShoppingList.Mobile.Web", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity(Label = "ShoppingList.Mobile.Release", MainLauncher = true, Icon = "@drawable/icon")]
 #endif
 	public class HomeScreen : ListActivity 
 	{
@@ -65,6 +65,7 @@ namespace ShoppingList.Mobile
 				var item = (string)ListView.GetItemAtPosition(positions.KeyAt(i));
 				RemoveItem(item);
 			}
+			Refresh();
 		}
 
 		private void Refresh()
@@ -87,7 +88,11 @@ namespace ShoppingList.Mobile
 
 			builder.SetView(input)
 				.SetTitle("Item")
-				.SetPositiveButton("OK", (s1, args) => AddItem(input.Text))
+				.SetPositiveButton("OK", (s1, args) => 
+				{ 
+					AddItem(input.Text); 
+					Refresh(); 
+				})
 				.SetNegativeButton("Cancel", (s2, args) =>
 				{
 				})
@@ -97,13 +102,11 @@ namespace ShoppingList.Mobile
 		private void AddItem(string text)
 		{
 			_shoppingListService.AddItem(text);
-			Refresh();
 		}
 
 		private void RemoveItem(string text)
 		{
 			_shoppingListService.RemoveItem(text);
-			Refresh();
 		}
 	}
 }

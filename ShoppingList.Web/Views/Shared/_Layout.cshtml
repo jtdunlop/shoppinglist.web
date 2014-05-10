@@ -5,26 +5,19 @@
         <title>@ViewBag.Title</title>
         <meta name="viewport" content="width=device-width" />
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        @Styles.Render("~/Content/mobileCss", "~/Content/css")
+        @Styles.Render("~/styles/css")
         @Scripts.Render("~/bundles/modernizr")
     </head>
     <body>
         <div data-role="page" data-theme="b">
-            <div data-role="header">
-                @if (IsSectionDefined("Header")) {
-                    @RenderSection("Header")
-                } else {
-                    <h1>@ViewBag.Title</h1>
-                    @Html.Partial("_LoginPartial")
-                }
-            </div>
             <div data-role="content">
                 @RenderBody()
             </div>
         </div>
 
         @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/Scripts/angular.js")
+        @Scripts.Render("~/Scripts/angular.min.js")
+        @*@Scripts.Render("~/bundles/mobile-angular-ui")*@
         @Scripts.Render("~/Scripts/lib/underscore.js")
         <script>
             $(document).on("mobileinit", function () {
@@ -32,5 +25,6 @@
             });
         </script>
         @RenderSection("scripts", required: false)
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     </body>
 </html>

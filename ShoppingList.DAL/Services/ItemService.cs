@@ -21,7 +21,8 @@ namespace DBSoft.ShoppingList.DAL.Services
 		public IEnumerable<Item> GetItems()
 		{
 			var query = new TableQuery<Item>();
-			return _table.ExecuteQuery(query).ToList();
+			var result = _table.ExecuteQuery(query).ToList();
+			return result;
 		}
 
 		public void Add(string item)

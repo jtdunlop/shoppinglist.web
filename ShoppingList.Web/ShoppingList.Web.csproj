@@ -173,17 +173,34 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-base.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-base.min.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-desktop.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-desktop.min.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-max-width-767px.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-max-width-767px.min.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-min-width-1200px.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-min-width-1200px.min.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-min-width-768px-and-max-width-991px.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-min-width-768px-and-max-width-991px.min.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-min-width-768px.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-min-width-768px.min.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-min-width-992px-and-max-width-1199px.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-min-width-992px-and-max-width-1199px.min.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-min-width-992px.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-min-width-992px.min.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-print.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-print.min.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-screen-and-min-width-768px.css" />
+    <Content Include="Content\css\mobile-angular-ui\mobile-angular-ui-screen-and-min-width-768px.min.css" />
+    <Content Include="Content\css\site.css">
+      <DependentUpon>site.less</DependentUpon>
+    </Content>
     <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\images\icons-18-black.png" />
     <Content Include="Content\images\icons-18-white.png" />
     <Content Include="Content\images\icons-36-black.png" />
     <Content Include="Content\images\icons-36-white.png" />
-    <Content Include="Content\jquery.mobile-1.2.0.css" />
-    <Content Include="Content\jquery.mobile-1.2.0.min.css" />
-    <Content Include="Content\jquery.mobile.structure-1.2.0.css" />
-    <Content Include="Content\jquery.mobile.structure-1.2.0.min.css" />
-    <Content Include="Content\jquery.mobile.theme-1.2.0.css" />
-    <Content Include="Content\jquery.mobile.theme-1.2.0.min.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -268,6 +285,51 @@
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Content\css\site.css.map">
+      <DependentUpon>site.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\bootstrap\.csscomb.json" />
+    <Content Include="Content\css\bootstrap\.csslintrc" />
+    <Content Include="Content\css\bootstrap\alerts.less" />
+    <Content Include="Content\css\bootstrap\badges.less" />
+    <Content Include="Content\css\bootstrap\bootstrap.less" />
+    <Content Include="Content\css\bootstrap\breadcrumbs.less" />
+    <Content Include="Content\css\bootstrap\button-groups.less" />
+    <Content Include="Content\css\bootstrap\buttons.less" />
+    <Content Include="Content\css\bootstrap\carousel.less" />
+    <Content Include="Content\css\bootstrap\close.less" />
+    <Content Include="Content\css\bootstrap\code.less" />
+    <Content Include="Content\css\bootstrap\component-animations.less" />
+    <Content Include="Content\css\bootstrap\dropdowns.less" />
+    <Content Include="Content\css\bootstrap\forms.less" />
+    <Content Include="Content\css\bootstrap\glyphicons.less" />
+    <Content Include="Content\css\bootstrap\grid.less" />
+    <Content Include="Content\css\bootstrap\input-groups.less" />
+    <Content Include="Content\css\bootstrap\jumbotron.less" />
+    <Content Include="Content\css\bootstrap\labels.less" />
+    <Content Include="Content\css\bootstrap\list-group.less" />
+    <Content Include="Content\css\bootstrap\media.less" />
+    <Content Include="Content\css\bootstrap\mixins.less" />
+    <Content Include="Content\css\bootstrap\modals.less" />
+    <Content Include="Content\css\bootstrap\navbar.less" />
+    <Content Include="Content\css\bootstrap\navs.less" />
+    <Content Include="Content\css\bootstrap\normalize.less" />
+    <Content Include="Content\css\bootstrap\pager.less" />
+    <Content Include="Content\css\bootstrap\pagination.less" />
+    <Content Include="Content\css\bootstrap\panels.less" />
+    <Content Include="Content\css\bootstrap\popovers.less" />
+    <Content Include="Content\css\bootstrap\print.less" />
+    <Content Include="Content\css\bootstrap\progress-bars.less" />
+    <Content Include="Content\css\bootstrap\responsive-utilities.less" />
+    <Content Include="Content\css\bootstrap\scaffolding.less" />
+    <Content Include="Content\css\bootstrap\tables.less" />
+    <Content Include="Content\css\bootstrap\theme.less" />
+    <Content Include="Content\css\bootstrap\thumbnails.less" />
+    <Content Include="Content\css\bootstrap\tooltip.less" />
+    <Content Include="Content\css\bootstrap\type.less" />
+    <Content Include="Content\css\bootstrap\utilities.less" />
+    <Content Include="Content\css\bootstrap\variables.less" />
+    <Content Include="Content\css\bootstrap\wells.less" />
     <None Include="Properties\PublishProfiles\shopping-list-web.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
@@ -529,6 +591,18 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\lib\underscore.js" />
+    <Content Include="Scripts\mobile-angular-ui\mobile-angular-ui-scrollable-iscroll-lite.js" />
+    <Content Include="Scripts\mobile-angular-ui\mobile-angular-ui-scrollable-iscroll-lite.min.js" />
+    <Content Include="Scripts\mobile-angular-ui\mobile-angular-ui-scrollable-iscroll.js" />
+    <Content Include="Scripts\mobile-angular-ui\mobile-angular-ui-scrollable-iscroll.min.js" />
+    <Content Include="Scripts\mobile-angular-ui\mobile-angular-ui-scrollable-overthrow.js" />
+    <Content Include="Scripts\mobile-angular-ui\mobile-angular-ui-scrollable-overthrow.min.js" />
+    <Content Include="Scripts\mobile-angular-ui\mobile-angular-ui-touch-fastclick.js" />
+    <Content Include="Scripts\mobile-angular-ui\mobile-angular-ui-touch-fastclick.min.js" />
+    <Content Include="Scripts\mobile-angular-ui\mobile-angular-ui-touch-ng.js" />
+    <Content Include="Scripts\mobile-angular-ui\mobile-angular-ui-touch-ng.min.js" />
+    <Content Include="Scripts\mobile-angular-ui\mobile-angular-ui.js" />
+    <Content Include="Scripts\mobile-angular-ui\mobile-angular-ui.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\ShoppingList\app.js" />
     <Content Include="Scripts\ShoppingList\shoppingListController.js" />
@@ -539,13 +613,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
+    <None Include="Content\css\site.less" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Account\ChangePassword.cshtml" />
-    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
