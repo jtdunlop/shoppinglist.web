@@ -5,7 +5,7 @@ shoppingListModule.controller('shoppingListController', function ($scope, $http)
 	
 	$scope.addItem = function () {
 		$scope.model.Items.push({ isAdding: true });
-		$scope.$apply();
+		// $scope.$apply();
 		window.scrollTo(0, document.body.scrollHeight);
 	};
 
@@ -32,7 +32,7 @@ shoppingListModule.controller('shoppingListController', function ($scope, $http)
 		var url = $('#shoppingList').data('remove-item-url');
 		_.each($scope.model.Items, function (item) {
 			if (item.selected) {
-				$http.post(url + "?item=" + escape(item.ItemName))
+				$http.post(url + "?item=" + escape(item.ItemId))
 					.success(function () {
 						item.isRemoved = true;
 					});

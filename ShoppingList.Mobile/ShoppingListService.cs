@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
 #if ANDROID
 using Android.Content;
 #endif
@@ -16,16 +15,15 @@ namespace ShoppingList.Mobile
 	{
 		public string Message { get; set; }
 		private readonly bool _emulated;
-		private readonly string _serviceAddress;
-		private readonly RestClient _client;
+	    private readonly RestClient _client;
 		private readonly string _path;
-		private const int Version = 4;
+		private const int Version = 5;
 
 		public ShoppingListService(bool emulated)
 		{
-			_emulated = emulated;
-			_serviceAddress = GetServiceAddress();
-			_client = new RestClient(_serviceAddress);
+		    _emulated = emulated;
+			var serviceAddress = GetServiceAddress();
+			_client = new RestClient(serviceAddress);
 			var documents = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
 			_path = Path.Combine(documents, "shopping-list.db");
 		}
@@ -55,37 +53,41 @@ namespace ShoppingList.Mobile
 
 		private string GetServiceAddress()
 		{
+            // return "http://192.168.0.101";
+            return "http://shopping-list.azurewebsites.net";
 #if DEBUG
+            Message = "?";
 			return string.Format("http://{0}/shoppinglist.services", _emulated ? "10.0.2.2" : "192.168.0.101");
 #else
-			return "http://shopping-list.azurewebsites.net";
+            Message = "Hmm";
+            return "http://shopping-list.azurewebsites.net";
 #endif
 		}
 
-		public IEnumerable<string> GetShoppingList()
+		public IEnumerable<Item> GetShoppingList()
 		{
-			List<string> results = null;
+			List<Item> results = null;
 			try
 			{
 #if ANDROID
 				SyncAdditions();
 				SyncDeletions();
 #endif
-				var url = String.Format("{0}/api/item/getitems", _serviceAddress);
-				var req = (HttpWebRequest)WebRequest.Create(new Uri(url));
-				using (var response = req.GetResponse())
-				{
-					var stream = response.GetResponseStream();
-					if (stream != null)
-						using (var reader = new StreamReader(stream, Encoding.UTF8))
-						{
-							results = JsonConvert.DeserializeObject<IEnumerable<string>>(reader.ReadToEnd()).ToList();
-						}
-				}
+                var request = new RestRequest("api/item/getitems", Method.GET);
+                var response = _client.Execute(request);
+                if ( response.ResponseStatus == ResponseStatus.Completed && response.StatusCode != HttpStatusCode.InternalServerError )
+                {
+                    results = JsonConvert.DeserializeObject<IEnumerable<Item>>(response.Content).ToList();
+                }
+                else
+                {
+                    throw new Exception(response.Content);
+                }
 			}
 // ReSharper disable once EmptyGeneralCatchClause
-			catch
+			catch ( Exception e)
 			{
+				var s = e.Message;
 			}
 			finally
 			{
@@ -98,15 +100,15 @@ namespace ShoppingList.Mobile
 						conn.DeleteAll<Item>();
 						foreach (var result in results)
 						{
-							conn.Insert(new Item { ItemName = result });
+							conn.Insert(new Item { ItemName = result.ItemName, ItemId = result.ItemId });
 						}
 					}
-					results = conn.Table<Item>().Where(f => f.DeleteFlag == 0).ToList().Select(f => f.ItemName).OrderBy(f => f).ToList();
+					results = conn.Table<Item>().Where(f => f.DeleteFlag == 0).ToList().Select(f => f).OrderBy(f => f).ToList();
 					conn.Commit();
 				}
 #endif
 			}
-			return results.OrderBy(f => f);
+			return results.OrderBy(f => f.ItemName);
 		}
 
 		private void SyncDeletions()
@@ -167,14 +169,5 @@ namespace ShoppingList.Mobile
 			}
 #endif
 		}
-	}
-
-	public class Item
-	{
-		public int Id { get; set; }
-		[PrimaryKey]
-		public string ItemName { get; set; }
-		public int AddFlag { get; set;}
-		public int DeleteFlag { get; set; }
 	}
 }

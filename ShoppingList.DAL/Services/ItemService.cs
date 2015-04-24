@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DBSoft.ShoppingList.DAL.Models;
 using Microsoft.WindowsAzure.Storage;
@@ -27,7 +28,7 @@ namespace DBSoft.ShoppingList.DAL.Services
 
 		public void Add(string item)
 		{
-			var add = new Item(item);
+			var add = new Item(Guid.NewGuid().ToString(), item);
 			var op = TableOperation.Insert(add);
 			_table.Execute(op);
 		}

@@ -7,10 +7,10 @@ namespace DBSoft.ShoppingList.DAL.Models
 		public Item()
 		{
 		}
-		public Item(string name)
+		public Item(string guid, string name)
 		{
-			RowKey = name;
-			PartitionKey = name;
+			RowKey = guid;
+            PartitionKey = guid;
 			ItemName = name;
 		}
 		public string ItemName { get; set; }

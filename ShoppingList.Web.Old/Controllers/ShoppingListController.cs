@@ -1,6 +1,6 @@
 ﻿using System.Linq;
-using System.Collections.Generic;
 using System.Web.Mvc;
+using DBSoft.ShoppingList.Web.Models;
 using ShoppingList.Mobile;
 
 namespace DBSoft.ShoppingList.Web.Controllers
@@ -16,10 +16,10 @@ namespace DBSoft.ShoppingList.Web.Controllers
 
 		public ActionResult Index()
         {
-			var counter = 0;
+            var counter = 0;
 			var model = new ShoppingListModel
 			{
-				Items = _service.GetShoppingList().Select(f => new Item { ItemName = f, Id = ++counter })
+				Items = _service.GetShoppingList().Select(f => new Item { Id = ++counter, ItemName = f.ItemName, ItemId = f.ItemId })
 			};
             return View(model);
         }
@@ -38,14 +38,4 @@ namespace DBSoft.ShoppingList.Web.Controllers
 			return Json("OK");
 		}
     }
-
-	public class ShoppingListModel
-	{
-		public ShoppingListModel()
-		{
-			Items = new List<Item>();
-		}
-
-		public IEnumerable<Item> Items { get; set; } 
-	}
 }

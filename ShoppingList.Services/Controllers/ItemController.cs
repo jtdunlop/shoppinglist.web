@@ -3,6 +3,7 @@ using DBSoft.ShoppingList.DAL.Services;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using DBSoft.ShoppingList.Services.Models;
 
 namespace DBSoft.ShoppingList.Services.Controllers
 {
@@ -15,9 +16,9 @@ namespace DBSoft.ShoppingList.Services.Controllers
 			_service = new ItemService();
 		}
 
-		public IEnumerable<string> GetItems()
+		public IEnumerable<ItemModel> GetItems()
 		{
-			var result = _service.GetItems().Select(f => f.ItemName).ToList();
+            var result = _service.GetItems().Select(f => new ItemModel { ItemName = f.ItemName, ItemId = f.RowKey }).ToList();
 			return result;
 		}
 

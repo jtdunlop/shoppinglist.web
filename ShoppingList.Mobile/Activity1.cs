@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System.Collections.Generic;
+using Android.App;
 using Android.OS;
 using Android.Text;
 using Android.Views;
@@ -68,13 +69,14 @@ namespace ShoppingList.Mobile
 			Refresh();
 		}
 
-		private void Refresh()
+        private IEnumerable<Item> _results;
+        private void Refresh()
 		{
-			var results = _shoppingListService.GetShoppingList();
+			_results = _shoppingListService.GetShoppingList();
 			RunOnUiThread(() =>
 			{
 				ListAdapter = new ArrayAdapter<string>(this,
-					Android.Resource.Layout.SimpleListItemMultipleChoice, results.ToArray());
+					Android.Resource.Layout.SimpleListItemMultipleChoice, _results.Select(f => f.ItemName).ToArray());
 				Title = _shoppingListService.Message;
 			});
 		}
@@ -106,7 +108,8 @@ namespace ShoppingList.Mobile
 
 		private void RemoveItem(string text)
 		{
-			_shoppingListService.RemoveItem(text);
+            var item = _results.First(f => f.ItemName == text);
+			_shoppingListService.RemoveItem(item.ItemId);
 		}
 	}
 }
