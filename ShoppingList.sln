@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingList.Services", "Sh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingList.DAL", "ShoppingList.DAL\ShoppingList.DAL.csproj", "{A1DC18DA-91AE-46DF-9C12-22FF015F3859}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingList.Web.Old", "ShoppingList.Web\ShoppingList.Web.Old.csproj", "{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CCBF47A9-EE31-47CC-9D70-834D5E7701F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingList.Mobile", "ShoppingList.Mobile\ShoppingList.Mobile.csproj", "{9E2FB132-95B5-425A-B039-74BAE3C02339}"
@@ -16,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newtonsoft.Json.MonoDroid", "..\..\..\..\Source\Repos\Newtonsoft.Json\Newtonsoft.Json\Newtonsoft.Json.MonoDroid.csproj", "{E6C3413C-919B-486D-8B6C-225CBD921B98}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingList.Web", "ShoppingList.Web2\ShoppingList.Web.csproj", "{4802418D-FB63-49E2-86CE-93FAC13F59CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingList.Old", "ShoppingList.Web.Old\ShoppingList.Old.csproj", "{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,16 +47,6 @@ Global
 		{A1DC18DA-91AE-46DF-9C12-22FF015F3859}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{A1DC18DA-91AE-46DF-9C12-22FF015F3859}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A1DC18DA-91AE-46DF-9C12-22FF015F3859}.Release|Win32.ActiveCfg = Release|Any CPU
-		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Release|Win32.ActiveCfg = Release|Any CPU
 		{9E2FB132-95B5-425A-B039-74BAE3C02339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9E2FB132-95B5-425A-B039-74BAE3C02339}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E2FB132-95B5-425A-B039-74BAE3C02339}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -91,6 +81,16 @@ Global
 		{4802418D-FB63-49E2-86CE-93FAC13F59CF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{4802418D-FB63-49E2-86CE-93FAC13F59CF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{4802418D-FB63-49E2-86CE-93FAC13F59CF}.Release|Win32.ActiveCfg = Release|Any CPU
+		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{EF9F79C5-DC60-4B2B-A1F4-C333F2C16503}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
