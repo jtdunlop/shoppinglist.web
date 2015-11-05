@@ -1,17 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CCBF47A9-EE31-47CC-9D70-834D5E7701F2}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingList.Services", "ShoppingList.Services\ShoppingList.Services.csproj", "{0F41D6B3-69EB-4A8F-B26D-B4043D8D1649}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingList.DAL", "ShoppingList.DAL\ShoppingList.DAL.csproj", "{A1DC18DA-91AE-46DF-9C12-22FF015F3859}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CCBF47A9-EE31-47CC-9D70-834D5E7701F2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingList.Mobile", "ShoppingList.Mobile\ShoppingList.Mobile.csproj", "{9E2FB132-95B5-425A-B039-74BAE3C02339}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newtonsoft.Json.MonoDroid", "..\..\..\..\Source\Repos\Newtonsoft.Json\Newtonsoft.Json\Newtonsoft.Json.MonoDroid.csproj", "{E6C3413C-919B-486D-8B6C-225CBD921B98}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingList.Web", "ShoppingList.Web2\ShoppingList.Web.csproj", "{4802418D-FB63-49E2-86CE-93FAC13F59CF}"
 EndProject
@@ -61,16 +59,6 @@ Global
 		{9E2FB132-95B5-425A-B039-74BAE3C02339}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{9E2FB132-95B5-425A-B039-74BAE3C02339}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
 		{9E2FB132-95B5-425A-B039-74BAE3C02339}.Release|Win32.ActiveCfg = Release|Any CPU
-		{E6C3413C-919B-486D-8B6C-225CBD921B98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6C3413C-919B-486D-8B6C-225CBD921B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E6C3413C-919B-486D-8B6C-225CBD921B98}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{E6C3413C-919B-486D-8B6C-225CBD921B98}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{E6C3413C-919B-486D-8B6C-225CBD921B98}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{E6C3413C-919B-486D-8B6C-225CBD921B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E6C3413C-919B-486D-8B6C-225CBD921B98}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E6C3413C-919B-486D-8B6C-225CBD921B98}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{E6C3413C-919B-486D-8B6C-225CBD921B98}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{E6C3413C-919B-486D-8B6C-225CBD921B98}.Release|Win32.ActiveCfg = Release|Any CPU
 		{4802418D-FB63-49E2-86CE-93FAC13F59CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4802418D-FB63-49E2-86CE-93FAC13F59CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4802418D-FB63-49E2-86CE-93FAC13F59CF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
